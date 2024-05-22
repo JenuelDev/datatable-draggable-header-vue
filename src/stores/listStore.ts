@@ -5,6 +5,9 @@ export const useListStore = defineStore("listStore", () => {
     const options = {
         animation: 200,
         group: "lists",
+        onEnd: () => {
+            renderHeader.value = JSON.parse(JSON.stringify(headers.value));
+        },
     };
 
     const headers = ref([

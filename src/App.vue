@@ -53,7 +53,13 @@ const listStore = useListStore();
                     >
                         <template v-for="header in listStore.renderHeader" :key="header.key">
                             <td
-                                v-if="header.show"
+                                v-if="
+                                    listStore.headers[
+                                        listStore.headers.findIndex(
+                                            (item) => item.key === header.key
+                                        )
+                                    ].show
+                                "
                                 class="px-6 py-4"
                                 :class="{
                                     'font-medium text-gray-900 whitespace-nowrap dark:text-white':
